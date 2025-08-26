@@ -136,14 +136,10 @@ const AnimalVotingButtons = ({
       
       {hasVoted && (
         <div className="already-voted">
-          <p>Thank you for voting! You have successfully cast your vote in this round.</p>
-          <p>Results will be displayed below once voting is complete.</p>
+          <p>Vote cast successfully.</p>
         </div>
       )}
       
-      <div className="voting-note">
-        <p>Note: Each transaction requires a small gas fee. You can only vote once per round.</p>
-      </div>
     </div>
   );
 };

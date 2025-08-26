@@ -88,16 +88,6 @@ const VotingStatus = ({
         </div>
       )}
       
-      <div className="voting-rules">
-        <h4>How to Vote:</h4>
-        <ol>
-          <li>Connect your wallet</li>
-          <li>Wait for voting to become active</li>
-          <li>Choose your favorite animal</li>
-          <li>Confirm the transaction</li>
-          <li>You can only vote once per round</li>
-        </ol>
-      </div>
     </div>
   );
 };

@@ -27,8 +27,7 @@ const WalletConnection = ({
     return (
       <div className="wallet-connection">
         <div className="wallet-status">
-          <h3>Connect Your Wallet</h3>
-          <p>Please connect your wallet to participate in the animal voting.</p>
+          <h3>Connect Wallet</h3>
           
           <button 
             onClick={handleConnect}
@@ -38,20 +37,7 @@ const WalletConnection = ({
             {isConnecting ? 'Connecting...' : 'Connect Wallet'}
           </button>
           
-          {error && (
-            <div className="wallet-error">
-              <p>{error}</p>
-            </div>
-          )}
-          
-          <div className="wallet-requirements">
-            <p>Requirements:</p>
-            <ul>
-              <li>MetaMask or compatible wallet</li>
-              <li>Connected to the correct network</li>
-              <li>Small amount of ETH for gas fees</li>
-            </ul>
-          </div>
+          {/* Error messages hidden */}
         </div>
       </div>
     );
@@ -84,11 +70,7 @@ const WalletConnection = ({
         </button>
       </div>
       
-      {error && (
-        <div className="wallet-error">
-          <p>{error}</p>
-        </div>
-      )}
+      {/* Error messages hidden */}
     </div>
   );
 };

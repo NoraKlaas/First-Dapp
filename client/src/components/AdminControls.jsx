@@ -140,9 +140,6 @@ const AdminControls = ({
         </div>
       </div>
       
-      <div className="admin-note">
-        <p>Note: Only the contract owner can perform these actions. All transactions require gas fees.</p>
-      </div>
     </div>
   );
 };

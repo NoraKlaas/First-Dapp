@@ -42,17 +42,17 @@ const ErrorDisplay = ({
   const getErrorIcon = (errorType) => {
     switch (errorType) {
       case 'user-rejected':
-        return '⚠️';
+        return 'REJECTED';
       case 'insufficient-funds':
-        return '💰';
+        return 'NO FUNDS';
       case 'network-error':
-        return '🌐';
+        return 'NETWORK';
       case 'wallet-error':
-        return '👛';
+        return 'WALLET';
       case 'contract-error':
-        return '📜';
+        return 'CONTRACT';
       default:
-        return '❌';
+        return 'ERROR';
     }
   };
 
@@ -81,7 +81,7 @@ const ErrorDisplay = ({
     <div className={`error-display ${errorType} ${className}`}>
       <div className="error-content">
         <div className="error-header">
-          <span className="error-icon">{errorIcon}</span>
+          <span className="error-type">{errorIcon}</span>
           <h4 className="error-title">{title}</h4>
         </div>
         

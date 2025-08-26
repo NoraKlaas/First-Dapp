@@ -1,3 +1,10 @@
+// Import animal images
+import tigerImg from '../assets/animals/tiger.png';
+import zebraImg from '../assets/animals/zebra.png';
+import giraffeImg from '../assets/animals/giraffe.png';
+import lynxImg from '../assets/animals/lynx.png';
+import leopardImg from '../assets/animals/leopard.png';
+
 // Contract configuration
 export const CONTRACT_ADDRESS = "0x06098349E55dd9C1587ab61813b23968624557a2";
 
@@ -142,27 +149,27 @@ export const ANIMALS = [
   {
     id: 0,
     name: "Tiger",
-    image: "/src/assets/animals/tiger.png"
+    image: tigerImg
   },
   {
     id: 1,
     name: "Zebra", 
-    image: "/src/assets/animals/zebra.png"
+    image: zebraImg
   },
   {
     id: 2,
     name: "Giraffe",
-    image: "/src/assets/animals/giraffe.png"
+    image: giraffeImg
   },
   {
     id: 3,
     name: "Lynx",
-    image: "/src/assets/animals/lynx.png"
+    image: lynxImg
   },
   {
     id: 4,
     name: "Leopard",
-    image: "/src/assets/animals/leopard.png"
+    image: leopardImg
   }
 ];
 

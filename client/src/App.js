@@ -12,13 +12,13 @@ import AdminControls from './components/AdminControls.jsx';
 import VotingStatus from './components/VotingStatus.jsx';
 import AnimalVotingButtons from './components/AnimalVotingButtons.jsx';
 import LiveResults from './components/LiveResults.jsx';
-import ErrorDisplay from './components/ErrorDisplay.jsx';
+// ErrorDisplay removed
 import LoadingSpinner, { PageLoading } from './components/LoadingSpinner.jsx';
+// ContractDiagnostics removed
 
 
 function App() {
-  // Global loading and error states
-  const [globalError, setGlobalError] = useState(null);
+  // Global loading state
   const [isInitializing, setIsInitializing] = useState(true);
 
   // Wallet hook
@@ -40,10 +40,15 @@ function App() {
     contractOwner,
     isLoading: contractLoading,
     error: contractError,
+    healthCheck,
+    initializationAttempts,
+    canRetry,
     handleStartVoting,
     handleEndVoting,
     handleResetVoting,
-    handleVote
+    handleVote,
+    retryInitialization,
+    performHealthCheck
   } = useContract(userAddress, isConnected);
 
   // Voting state hook
@@ -65,15 +70,7 @@ function App() {
     refreshVotes
   } = useVotingState(userAddress, isContractInitialized);
 
-  // Add this inside your App component, after the hooks
-  useEffect(() => {
-    console.log('=== DEBUG INFO ===');
-    console.log('User Address:', userAddress);
-    console.log('Contract Owner:', contractOwner);
-    console.log('Is Owner:', isOwner);
-    console.log('Is Connected:', isConnected);
-    console.log('Is Contract Initialized:', isContractInitialized);
-  }, [userAddress, contractOwner, isOwner, isConnected, isContractInitialized]);
+  // Debug logging removed
 
   // Handle initial app loading
   useEffect(() => {
@@ -84,20 +81,10 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Global error handling
-  useEffect(() => {
-    const errors = [walletError, contractError, votingError].filter(Boolean);
-    if (errors.length > 0) {
-      setGlobalError(errors[0]); // Show the first error
-    } else {
-      setGlobalError(null);
-    }
-  }, [walletError, contractError, votingError]);
 
   // Handle wallet connection
   const handleWalletConnect = async () => {
     try {
-      setGlobalError(null);
       await connectWallet();
     } catch (error) {
       console.error('Wallet connection failed:', error);
@@ -107,7 +94,6 @@ function App() {
   // Handle wallet disconnection
   const handleWalletDisconnect = () => {
     try {
-      setGlobalError(null);
       disconnectWallet();
     } catch (error) {
       console.error('Wallet disconnection failed:', error);
@@ -117,7 +103,6 @@ function App() {
   // Handle voting with error management
   const handleVoteWithErrorHandling = async (animalId) => {
     try {
-      setGlobalError(null);
       const result = await handleVote(animalId);
       
       // Refresh voting data after successful vote
@@ -129,7 +114,7 @@ function App() {
       
       return result;
     } catch (error) {
-      setGlobalError(error.message);
+      console.error('Voting failed:', error);
       throw error;
     }
   };
@@ -137,7 +122,6 @@ function App() {
   // Handle admin actions with error management
   const handleAdminAction = async (action) => {
     try {
-      setGlobalError(null);
       let result;
       
       switch (action) {
@@ -163,15 +147,11 @@ function App() {
       
       return result;
     } catch (error) {
-      setGlobalError(error.message);
+      console.error('Admin action failed:', error);
       throw error;
     }
   };
 
-  // Handle global error dismissal
-  const handleDismissGlobalError = () => {
-    setGlobalError(null);
-  };
 
   // Show initial loading screen
   if (isInitializing) {
@@ -186,15 +166,7 @@ function App() {
       </header>
 
       <main className="app-main">
-        {/* Global Error Display */}
-        {globalError && (
-          <ErrorDisplay
-            error={globalError}
-            title="Application Error"
-            onDismiss={handleDismissGlobalError}
-            className="global-error"
-          />
-        )}
+        {/* Global Error Display - Hidden */}
 
         {/* Wallet Connection Section */}
         <section className="wallet-section">
@@ -209,6 +181,8 @@ function App() {
             onDisconnect={handleWalletDisconnect}
           />
         </section>
+
+        {/* Contract Diagnostics - Hidden */}
 
         {/* Main Content - Only show when wallet is connected */}
         {isConnected && (
