@@ -45,11 +45,9 @@ The Dapp supports multiple voting rounds, administrative controls, and real-time
 ```
 contracts/
 ├── Voting.sol           # Main AnimalVoting smart contract
-└── Counter.sol          # Example contract (unused in main app)
 
 test/
 ├── Voting.ts           # Comprehensive test suite
-└── Counter.ts          # Counter contract tests
 
 ignition/modules/
 └── Voting.ts           # Deployment module
