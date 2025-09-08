@@ -1,6 +1,11 @@
 # Animal Voting Dapp
 
-A fully decentralized voting application built on Ethereum, allowing users to vote for their favorite animals in multiple rounds. This project demonstrates modern Web3 development practices with a complete smart contract backend and React frontend.
+A fully decentralized voting application built on Ethereum, allowing users to vote for their favorite animals in multiple rounds. This project demonstrates modern Web3 development practices with a complete smart contract backend and React frontend. 
+
+This project showcases how decentralized voting systems prevent censorship and manipulation, creating tamper-proof elections where every vote is permanently recorded and publicly verifiable. The architecture can be extended to governance tokens, DAO decisions, community polls, or any scenario requiring transparent, trustless consensus mechanisms.
+
+<img width="1215" height="827" alt="image" src="https://github.com/user-attachments/assets/d98fb547-e981-4d17-ba04-bf0823d20504" />
+
 
 ## Overview
 
