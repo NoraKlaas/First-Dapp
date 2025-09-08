@@ -4,7 +4,7 @@ A fully decentralized voting application built on Ethereum, allowing users to vo
 
 This project showcases how decentralized voting systems prevent censorship and manipulation, creating tamper-proof elections where every vote is permanently recorded and publicly verifiable. The architecture can be extended to governance tokens, DAO decisions, community polls, or any scenario requiring transparent, trustless consensus mechanisms.
 
-<img width="1215" height="827" alt="image" src="https://github.com/user-attachments/assets/d98fb547-e981-4d17-ba04-bf0823d20504" />
+<img width="1215" height="828" alt="Screenshot 2025-09-08 at 11 32 37" src="https://github.com/user-attachments/assets/c8bc38ac-e47a-4f77-8ab9-d9f2963cec2a" />
 
 
 ## Overview
